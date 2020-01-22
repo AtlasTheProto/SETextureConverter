@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="bulkTexConverter" GeneratedClassName="appSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="gamePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\SpaceEngineers</Value>
+    </Setting>
+    <Setting Name="toolPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\SpaceEngineersModSDK\Tools\TexturePacking\Tools</Value>
+    </Setting>
+    <Setting Name="outDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

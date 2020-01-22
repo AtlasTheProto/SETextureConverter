@@ -1,2 +1,2 @@
 # SETextureConverter
-Small tool to convert DDS to TIFs
+Tool for converting Space Engineers' DDS files to TIF for use in blender
