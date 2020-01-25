@@ -51,6 +51,7 @@
             this.folderlist_text = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.lbStatus1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,7 +134,7 @@
             // loadPresetsToolStripMenuItem
             // 
             this.loadPresetsToolStripMenuItem.Name = "loadPresetsToolStripMenuItem";
-            this.loadPresetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadPresetsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.loadPresetsToolStripMenuItem.Text = "Load Presets";
             this.loadPresetsToolStripMenuItem.Click += new System.EventHandler(this.LoadPresetsToolStripMenuItem_Click);
             // 
@@ -247,11 +248,21 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // lbStatus1
+            // 
+            this.lbStatus1.AutoSize = true;
+            this.lbStatus1.Location = new System.Drawing.Point(6, 555);
+            this.lbStatus1.Name = "lbStatus1";
+            this.lbStatus1.Size = new System.Drawing.Size(51, 13);
+            this.lbStatus1.TabIndex = 22;
+            this.lbStatus1.Text = "lbStatus1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 554);
+            this.ClientSize = new System.Drawing.Size(317, 571);
+            this.Controls.Add(this.lbStatus1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.folderlist_text);
@@ -304,6 +315,7 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ToolStripMenuItem loadPresetsToolStripMenuItem;
+        private System.Windows.Forms.Label lbStatus1;
     }
 }
 

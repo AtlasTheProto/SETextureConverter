@@ -12,6 +12,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+
 namespace bulkTexConverter
 {
     public partial class MainForm : Form
@@ -33,7 +34,6 @@ namespace bulkTexConverter
             this.MaximumSize = new Size(333, 593);
            
         }
-
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -100,7 +100,7 @@ namespace bulkTexConverter
                 lblGameDirectory.ForeColor = Color.Green;
             }
 
-            if (gamePath == null || gamePath.Length < 2 || toolPath == null || toolPath.Length < 2 || gamePath == null || gamePath.Length < 2 || busy)
+            if (gamePath == null || gamePath.Length < 2 || toolPath == null || toolPath.Length < 2 || gamePath == null || gamePath.Length < 2 || outDir == null || outDir.Length < 2 || busy)
             {
                 btnConvert.Enabled = false;
             } else
@@ -209,7 +209,10 @@ namespace bulkTexConverter
 
         public static void doConvertAll()
         {
-           busy = true; 
+
+           busy = true;
+            // I hate this
+           var moveDirs = new List<string> { "Models", "Particles", "Voxels", "Sprites", "Miscellaneous", "Lights", "Logo", "GUI", "HUD", "Gizmo", "Decals", "Debug", "BackgroundCube", "FactionLogo", "SunGlare"};
            var count = 0;
            foreach (string obj in Items)
             {
@@ -268,20 +271,36 @@ namespace bulkTexConverter
                 var currentFilePath = fileList[i];                
                 var DirName = Path.GetDirectoryName(currentFilePath);
                 var relDir = DirName.Replace(gamePath,"");
-                var destDir = outDir + relDir;
+                var destDir = "temp/" + relDir;
+                var convFileName = Path.GetFileName(currentFilePath);
                 Directory.CreateDirectory(destDir);
                 currentfiles = i;
                 var cmdArgs = string.Format("-ft TIF -if LINEAR -sRGB -y -o \"{0}\" \"{1}\"", destDir, currentFilePath);
                 var newProcess = StartProcess(toolPath + "\\texconv.exe", cmdArgs);
-                consoleBuffer.Enqueue("Converting " + currentFilePath);
+                // consoleBuffer.Enqueue("Converting " + i +  " out of " + maxfiles + " (" + convFileName + ")");
+                consoleBuffer.Enqueue("Converting: " + convFileName + " (" + i + "/" + maxfiles + ")");
                 if (newProcess!=null)
                 {
                     newProcess.WaitForExit();
                 }
                // Console.WriteLine(cmdArgs);
 
+            // Sorry in advance
 
             }
+            foreach (string dir in moveDirs)
+            {
+                try
+                {
+                    Directory.Move("temp/Content/Textures/" + dir, outDir + "/" + dir);
+                    consoleBuffer.Enqueue("Moved " + dir );
+                }
+                catch
+                {
+                    consoleBuffer.Enqueue("Did not move " + dir + " as it had no converted textures");
+                }
+            }
+            MessageBox.Show("Done");
             busy = false;
 
         }
@@ -291,12 +310,12 @@ namespace bulkTexConverter
 #if !DEBUG
             if (!File.Exists(toolPath + "/texconv.exe"))
             {
-                MessageBox.Show("Cannot find texconv.exe under tool directory.");
+                MessageBox.Show("Cannot find texconv.exe under tool directory.\n\nPlease ensure ModSDK is installed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!Directory.Exists(gamePath))
             {
-                MessageBox.Show("Game path is wrong.");
+                MessageBox.Show("Game path is wrong.\n\nPlease ensure game is installed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 #endif
