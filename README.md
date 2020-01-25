@@ -23,7 +23,7 @@ To load the preset, click File > Load Presets
 
 Please report all issues to this github.
 
-###Credits
+### Credits
 
 Literally none of this would exist if it wasnt for my good friend Xayr, go check him out.
 
