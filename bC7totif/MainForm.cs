@@ -158,6 +158,18 @@ namespace bulkTexConverter
             }
         }
 
+        private void resetSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            appSettings.Default.Reset();
+            tbToolPath.Text = "";
+            tbOutputDir.Text = "";
+            //tbGameDirectory.Text = "";
+            tbToolPath.Text = appSettings.Default.toolPath;
+            tbOutputDir.Text = appSettings.Default.outDir;
+            tbGameDirectory.Text = appSettings.Default.gamePath;
+            //appSettings.Default.Save();
+        }
+
         private void tbToolPath_TextChanged(object sender, EventArgs e)
         {
             toolPath = tbToolPath.Text;
@@ -172,6 +184,7 @@ namespace bulkTexConverter
 
         private void tbGameDirectory_TextChanged(object sender, EventArgs e)
         {
+            
             gamePath = tbGameDirectory.Text;
             updateSettings();
         }
@@ -212,7 +225,7 @@ namespace bulkTexConverter
 
            busy = true;
             // I hate this
-           var moveDirs = new List<string> { "Models", "Particles", "Voxels", "Sprites", "Miscellaneous", "Lights", "Logo", "GUI", "HUD", "Gizmo", "Decals", "Debug", "BackgroundCube", "FactionLogo", "SunGlare"};
+            //var moveDirs = new List<string> { "Models", "Particles", "Voxels", "Sprites", "Miscellaneous", "Lights", "Logo", "GUI", "HUD", "Gizmo", "Decals", "Debug", "BackgroundCube", "FactionLogo", "SunGlare"};
            var count = 0;
            foreach (string obj in Items)
             {
@@ -271,7 +284,8 @@ namespace bulkTexConverter
                 var currentFilePath = fileList[i];                
                 var DirName = Path.GetDirectoryName(currentFilePath);
                 var relDir = DirName.Replace(gamePath,"");
-                var destDir = "temp/" + relDir;
+                var destDir = outDir + relDir;
+                //var destDir = "temp/" + relDir;
                 var convFileName = Path.GetFileName(currentFilePath);
                 Directory.CreateDirectory(destDir);
                 currentfiles = i;
@@ -283,11 +297,9 @@ namespace bulkTexConverter
                 {
                     newProcess.WaitForExit();
                 }
-               // Console.WriteLine(cmdArgs);
-
-            // Sorry in advance
 
             }
+            /*
             foreach (string dir in moveDirs)
             {
                 try
@@ -297,17 +309,20 @@ namespace bulkTexConverter
                 }
                 catch
                 {
-                    consoleBuffer.Enqueue("Did not move " + dir + " as it had no converted textures");
+                    consoleBuffer.Enqueue("Skipped moving " + dir + ", it may already exist");
                 }
             }
-            MessageBox.Show("Done");
+            */
+
+            //Directory.Delete("temp");
+            MessageBox.Show("Finished!", "Conversion completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             busy = false;
 
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-#if !DEBUG
+
             if (!File.Exists(toolPath + "/texconv.exe"))
             {
                 MessageBox.Show("Cannot find texconv.exe under tool directory.\n\nPlease ensure ModSDK is installed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -318,7 +333,7 @@ namespace bulkTexConverter
                 MessageBox.Show("Game path is wrong.\n\nPlease ensure game is installed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-#endif
+
             Items = lbfolderList.Items;
             var asyncThreadParamInit = new ThreadStart(doConvertAll);
             //doConvertAll();
@@ -336,11 +351,12 @@ namespace bulkTexConverter
             var diagRes = appFolderBrowser.ShowDialog();
             if (diagRes == DialogResult.OK)
             {
+                
                 var pth1 = appFolderBrowser.SelectedPath;
                 var pth2 = pth1.Replace(gamePath + "\\", "\\");
                 if (pth2 == pth1)
                 {
-                    MessageBox.Show("Path must be inside game directory.");
+                    MessageBox.Show("Path must be inside game directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 lbfolderList.Items.Add(pth2);
@@ -365,6 +381,7 @@ namespace bulkTexConverter
         {
             if (File.Exists("presets.ini"))
             {
+                
                 lbfolderList.Items.Clear();
                 var sparr = File.ReadAllLines("presets.ini");
                 for (int i = 0; i < sparr.Length; i++)
@@ -382,8 +399,10 @@ namespace bulkTexConverter
                 }
             } else
             {
-                MessageBox.Show("presets.ini not found in application directory.");
+                MessageBox.Show("presets.ini not found in application directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }

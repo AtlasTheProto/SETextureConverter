@@ -52,6 +52,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lbStatus1 = new System.Windows.Forms.Label();
+            this.resetSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,9 +67,9 @@
             // 
             // btnSelToolPath
             // 
-            this.btnSelToolPath.Location = new System.Drawing.Point(227, 36);
+            this.btnSelToolPath.Location = new System.Drawing.Point(227, 39);
             this.btnSelToolPath.Name = "btnSelToolPath";
-            this.btnSelToolPath.Size = new System.Drawing.Size(75, 23);
+            this.btnSelToolPath.Size = new System.Drawing.Size(75, 20);
             this.btnSelToolPath.TabIndex = 4;
             this.btnSelToolPath.Text = "Browse...";
             this.btnSelToolPath.UseVisualStyleBackColor = true;
@@ -80,13 +81,14 @@
             this.lblToolPath1.ForeColor = System.Drawing.Color.Red;
             this.lblToolPath1.Location = new System.Drawing.Point(3, 24);
             this.lblToolPath1.Name = "lblToolPath1";
-            this.lblToolPath1.Size = new System.Drawing.Size(53, 13);
+            this.lblToolPath1.Size = new System.Drawing.Size(97, 13);
             this.lblToolPath1.TabIndex = 6;
-            this.lblToolPath1.Text = "Tool Path";
+            this.lblToolPath1.Text = "SEUT Tools Folder";
             // 
             // lbConsoleOutput
             // 
             this.lbConsoleOutput.BackColor = System.Drawing.SystemColors.MenuText;
+            this.lbConsoleOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbConsoleOutput.ForeColor = System.Drawing.Color.Lime;
             this.lbConsoleOutput.FormattingEnabled = true;
             this.lbConsoleOutput.Location = new System.Drawing.Point(6, 283);
@@ -99,9 +101,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 267);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Console Output";
+            this.label2.Text = "Console - Status";
             // 
             // tbOutputDir
             // 
@@ -126,7 +128,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadPresetsToolStripMenuItem});
+            this.loadPresetsToolStripMenuItem,
+            this.resetSettingsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -142,7 +145,7 @@
             // 
             this.btnBrowseGameDir.Location = new System.Drawing.Point(227, 117);
             this.btnBrowseGameDir.Name = "btnBrowseGameDir";
-            this.btnBrowseGameDir.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseGameDir.Size = new System.Drawing.Size(75, 20);
             this.btnBrowseGameDir.TabIndex = 11;
             this.btnBrowseGameDir.Text = "Browse...";
             this.btnBrowseGameDir.UseVisualStyleBackColor = true;
@@ -151,6 +154,7 @@
             // btnConvert
             // 
             this.btnConvert.Enabled = false;
+            this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.Location = new System.Drawing.Point(6, 488);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(303, 60);
@@ -165,9 +169,9 @@
             this.lblOutputDir.ForeColor = System.Drawing.Color.Red;
             this.lblOutputDir.Location = new System.Drawing.Point(3, 62);
             this.lblOutputDir.Name = "lblOutputDir";
-            this.lblOutputDir.Size = new System.Drawing.Size(84, 13);
+            this.lblOutputDir.Size = new System.Drawing.Size(112, 13);
             this.lblOutputDir.TabIndex = 13;
-            this.lblOutputDir.Text = "Output Directory";
+            this.lblOutputDir.Text = "SEUT Textures Folder";
             // 
             // convertProgress
             // 
@@ -182,9 +186,9 @@
             this.lblGameDirectory.ForeColor = System.Drawing.Color.Red;
             this.lblGameDirectory.Location = new System.Drawing.Point(3, 101);
             this.lblGameDirectory.Name = "lblGameDirectory";
-            this.lblGameDirectory.Size = new System.Drawing.Size(80, 13);
+            this.lblGameDirectory.Size = new System.Drawing.Size(164, 13);
             this.lblGameDirectory.TabIndex = 15;
-            this.lblGameDirectory.Text = "Game Directory";
+            this.lblGameDirectory.Text = "Space Engineers Textures Folder";
             // 
             // tbGameDirectory
             // 
@@ -197,9 +201,9 @@
             // 
             // btnBrowseOut
             // 
-            this.btnBrowseOut.Location = new System.Drawing.Point(227, 76);
+            this.btnBrowseOut.Location = new System.Drawing.Point(227, 78);
             this.btnBrowseOut.Name = "btnBrowseOut";
-            this.btnBrowseOut.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseOut.Size = new System.Drawing.Size(75, 20);
             this.btnBrowseOut.TabIndex = 17;
             this.btnBrowseOut.Text = "Browse...";
             this.btnBrowseOut.UseVisualStyleBackColor = true;
@@ -257,11 +261,18 @@
             this.lbStatus1.TabIndex = 22;
             this.lbStatus1.Text = "lbStatus1";
             // 
+            // resetSettingsToolStripMenuItem
+            // 
+            this.resetSettingsToolStripMenuItem.Name = "resetSettingsToolStripMenuItem";
+            this.resetSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetSettingsToolStripMenuItem.Text = "Reset Settings ";
+            this.resetSettingsToolStripMenuItem.Click += new System.EventHandler(this.resetSettingsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 571);
+            this.ClientSize = new System.Drawing.Size(317, 554);
             this.Controls.Add(this.lbStatus1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRemove);
@@ -283,7 +294,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Bulk Texture Converter";
+            this.Text = "SEUT - Texture Converter";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -316,6 +327,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ToolStripMenuItem loadPresetsToolStripMenuItem;
         private System.Windows.Forms.Label lbStatus1;
+        private System.Windows.Forms.ToolStripMenuItem resetSettingsToolStripMenuItem;
     }
 }
 

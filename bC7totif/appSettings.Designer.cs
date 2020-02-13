@@ -12,7 +12,7 @@ namespace bulkTexConverter {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     internal sealed partial class appSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static appSettings defaultInstance = ((appSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new appSettings())));
@@ -25,7 +25,7 @@ namespace bulkTexConverter {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Steam\\steamapps\\common\\SpaceEngineers")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Steam\\steamapps\\common\\SpaceEngineers\\Content\\Textures")]
         public string gamePath {
             get {
                 return ((string)(this["gamePath"]));
@@ -37,8 +37,7 @@ namespace bulkTexConverter {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Steam\\steamapps\\common\\SpaceEngineersModSDK\\Tools\\TextureP" +
-            "acking\\Tools")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string toolPath {
             get {
                 return ((string)(this["toolPath"]));

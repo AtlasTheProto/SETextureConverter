@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="gamePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\SpaceEngineers</Value>
+      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Content\Textures</Value>
     </Setting>
     <Setting Name="toolPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\SpaceEngineersModSDK\Tools\TexturePacking\Tools</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="outDir" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
