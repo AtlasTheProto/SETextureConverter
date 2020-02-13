@@ -7,15 +7,19 @@ https://github.com/enenra/space-engineers-utilities
 
 Tool Path and Game directory are auto populated with directories relative to the C drive, but if you have them installed elsewhere, please change the path.
 
-"Game Directory" is the root folder of your space engineers install (common/SpaceEngineers)
+"SEUT Tools Folder" is genenrally the Tools folder in your SEUT folder. You were told to put texconv.exe there in the SEUT walkthrough
 
-"Tool Path" is the folder in the modsdk containing the "texconv.exe" executable
+"SEUT Textures Folder" is the Textures folder in your SEUT folder. This is where everything goes.
 
-"Output Directory" is, in most cases, the "Textures" folder in your SEUT folder. As this is what Enenra's matlibs need to function, so please set it to be that.
+"Space Engineers Textures Folder" is the games own textures folder. Typically in SpaceEngineers/Content/Textures
+
+***PLEASE ENSURE THAT THE LAST ONE IS CORRECT OR THE MATLIBS WILL NOT LINK CORRECTLY***
+
+*You can reset everything to default by clicking file- reset settings*
 
 ### Presets
 
-By default, the zip file in the releases tab comes with a presets.ini file, this contains all the necessary paths the tool needs to convert all the textures Enenra's matlib files need.
+A presets.ini file is included with this release, this contains all the necessary paths the tool needs to convert all the textures Enenra's matlib files need.
 
 To load the preset, click File > Load Presets
 
