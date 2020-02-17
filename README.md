@@ -21,7 +21,7 @@ Tool Path and Game directory are auto populated with directories relative to the
 
 A presets.ini file is included with this release, this contains all the necessary paths the tool needs to convert all the textures Enenra's matlib files need.
 
-To load the preset, click File > Load Presets
+#To load the preset, click File > Load Presets - this is highly reccomended for maximum compatibility with MatLibs
 
 ### Issues
 
@@ -32,3 +32,5 @@ Please report all issues to this github.
 Literally none of this would exist if it wasnt for my good friend Xayr, go check him out.
 
 https://github.com/XAYRGA
+
+
