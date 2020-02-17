@@ -23,6 +23,8 @@ A presets.ini file is included with this release, this contains all the necessar
 
 # To load the preset, click File > Load Presets - this is highly reccomended for maximum compatibility with MatLibs
 
+# That being said, you can probably remove "Voxels" from the list
+
 ### Issues
 
 Please report all issues to this github.
