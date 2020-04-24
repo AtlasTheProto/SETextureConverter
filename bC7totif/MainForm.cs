@@ -299,22 +299,7 @@ namespace bulkTexConverter
                 }
 
             }
-            /*
-            foreach (string dir in moveDirs)
-            {
-                try
-                {
-                    Directory.Move("temp/Content/Textures/" + dir, outDir + "/" + dir);
-                    consoleBuffer.Enqueue("Moved " + dir );
-                }
-                catch
-                {
-                    consoleBuffer.Enqueue("Skipped moving " + dir + ", it may already exist");
-                }
-            }
-            */
-
-            //Directory.Delete("temp");
+            
             MessageBox.Show("Finished!", "Conversion completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             busy = false;
 
@@ -325,12 +310,12 @@ namespace bulkTexConverter
 
             if (!File.Exists(toolPath + "/texconv.exe"))
             {
-                MessageBox.Show("Cannot find texconv.exe under tool directory.\n\nPlease ensure ModSDK is installed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot find texconv.exe under tool directory.\n\nPlease ensure ModSDK is installed.", "Error (01)", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!Directory.Exists(gamePath))
             {
-                MessageBox.Show("Game path is wrong.\n\nPlease ensure game is installed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Game path is wrong.\n\nPlease ensure game is installed.", "Error (02)", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -343,6 +328,7 @@ namespace bulkTexConverter
 
         private void performTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // defunct
             StartProcess(@"C:\WINDOWs\SYSTEM32\PING.exe", "google.com");
         }
 
@@ -356,7 +342,7 @@ namespace bulkTexConverter
                 var pth2 = pth1.Replace(gamePath + "\\", "\\");
                 if (pth2 == pth1)
                 {
-                    MessageBox.Show("Path must be inside game directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Path must be inside game directory.", "Error (03)", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 lbfolderList.Items.Add(pth2);
@@ -392,17 +378,42 @@ namespace bulkTexConverter
                     var pth2 = pth1.Replace(gamePath + "\\", "\\");
                     if (pth2 == pth1)
                     {
-                        consoleBuffer.Enqueue("Path must be inside game directory " + sparr[i]);
+                        MessageBox.Show("Path must be inside game directory.", "Error (04)", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     lbfolderList.Items.Add(pth2);
                 }
             } else
             {
-                MessageBox.Show("presets.ini not found in application directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("presets.ini not found in application directory.", "Error (05)", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        
+        private void btnInsertPresets_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("presets.ini"))
+            {
+
+                lbfolderList.Items.Clear();
+                var sparr = File.ReadAllLines("presets.ini");
+                for (int i = 0; i < sparr.Length; i++)
+                {
+                    if (sparr[i] == null)
+                        continue;
+                    var pth1 = sparr[i];
+                    var pth2 = pth1.Replace(gamePath + "\\", "\\");
+                    if (pth2 == pth1)
+                    {
+                        MessageBox.Show("Preset Error: Path must be inside game directory.\n"+pth1+"\n"+pth2, "Error (06)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    lbfolderList.Items.Add(pth2);
+                }
+            }
+            else
+            {
+                MessageBox.Show("presets.ini not found in application directory.", "Error (07)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

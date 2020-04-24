@@ -38,6 +38,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadPresetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBrowseGameDir = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
             this.lblOutputDir = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lbStatus1 = new System.Windows.Forms.Label();
-            this.resetSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnInsertPresets = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,9 +138,16 @@
             // loadPresetsToolStripMenuItem
             // 
             this.loadPresetsToolStripMenuItem.Name = "loadPresetsToolStripMenuItem";
-            this.loadPresetsToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.loadPresetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadPresetsToolStripMenuItem.Text = "Load Presets";
             this.loadPresetsToolStripMenuItem.Click += new System.EventHandler(this.LoadPresetsToolStripMenuItem_Click);
+            // 
+            // resetSettingsToolStripMenuItem
+            // 
+            this.resetSettingsToolStripMenuItem.Name = "resetSettingsToolStripMenuItem";
+            this.resetSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetSettingsToolStripMenuItem.Text = "Reset Settings ";
+            this.resetSettingsToolStripMenuItem.Click += new System.EventHandler(this.resetSettingsToolStripMenuItem_Click);
             // 
             // btnBrowseGameDir
             // 
@@ -261,18 +269,22 @@
             this.lbStatus1.TabIndex = 22;
             this.lbStatus1.Text = "lbStatus1";
             // 
-            // resetSettingsToolStripMenuItem
+            // btnInsertPresets
             // 
-            this.resetSettingsToolStripMenuItem.Name = "resetSettingsToolStripMenuItem";
-            this.resetSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.resetSettingsToolStripMenuItem.Text = "Reset Settings ";
-            this.resetSettingsToolStripMenuItem.Click += new System.EventHandler(this.resetSettingsToolStripMenuItem_Click);
+            this.btnInsertPresets.Location = new System.Drawing.Point(228, 215);
+            this.btnInsertPresets.Name = "btnInsertPresets";
+            this.btnInsertPresets.Size = new System.Drawing.Size(74, 49);
+            this.btnInsertPresets.TabIndex = 23;
+            this.btnInsertPresets.Text = "Insert Presets";
+            this.btnInsertPresets.UseVisualStyleBackColor = true;
+            this.btnInsertPresets.Click += new System.EventHandler(this.btnInsertPresets_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 554);
+            this.Controls.Add(this.btnInsertPresets);
             this.Controls.Add(this.lbStatus1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRemove);
@@ -328,6 +340,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadPresetsToolStripMenuItem;
         private System.Windows.Forms.Label lbStatus1;
         private System.Windows.Forms.ToolStripMenuItem resetSettingsToolStripMenuItem;
+        private System.Windows.Forms.Button btnInsertPresets;
     }
 }
 
