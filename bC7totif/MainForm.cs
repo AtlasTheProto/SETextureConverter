@@ -224,8 +224,6 @@ namespace bulkTexConverter
         {
 
            busy = true;
-            // I hate this
-            //var moveDirs = new List<string> { "Models", "Particles", "Voxels", "Sprites", "Miscellaneous", "Lights", "Logo", "GUI", "HUD", "Gizmo", "Decals", "Debug", "BackgroundCube", "FactionLogo", "SunGlare"};
            var count = 0;
            foreach (string obj in Items)
             {
@@ -328,8 +326,7 @@ namespace bulkTexConverter
 
         private void performTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // defunct
-            StartProcess(@"C:\WINDOWs\SYSTEM32\PING.exe", "google.com");
+            // defunct debug shit
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -367,23 +364,18 @@ namespace bulkTexConverter
         {
             if (File.Exists("presets.ini"))
             {
-                
+
                 lbfolderList.Items.Clear();
-                var sparr = File.ReadAllLines("presets.ini");
-                for (int i = 0; i < sparr.Length; i++)
+                var presetItems = File.ReadAllLines("presets.ini");
+                for (int i = 0; i < presetItems.Length; i++)
                 {
-                    if (sparr[i] == null)
-                        continue;            
-                    var pth1 = sparr[i];
-                    var pth2 = pth1.Replace(gamePath + "\\", "\\");
-                    if (pth2 == pth1)
-                    {
-                        MessageBox.Show("Path must be inside game directory.", "Error (04)", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    lbfolderList.Items.Add(pth2);
+                    if (presetItems[i] == null)
+                        continue;
+                    var pth1 = presetItems[i];
+                    lbfolderList.Items.Add(pth1);
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("presets.ini not found in application directory.", "Error (05)", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -395,19 +387,13 @@ namespace bulkTexConverter
             {
 
                 lbfolderList.Items.Clear();
-                var sparr = File.ReadAllLines("presets.ini");
-                for (int i = 0; i < sparr.Length; i++)
+                var presetItems = File.ReadAllLines("presets.ini");
+                for (int i = 0; i < presetItems.Length; i++)
                 {
-                    if (sparr[i] == null)
+                    if (presetItems[i] == null)
                         continue;
-                    var pth1 = sparr[i];
-                    var pth2 = pth1.Replace(gamePath + "\\", "\\");
-                    if (pth2 == pth1)
-                    {
-                        MessageBox.Show("Preset Error: Path must be inside game directory.\n"+pth1+"\n"+pth2, "Error (06)", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    lbfolderList.Items.Add(pth2);
+                    var pth1 = presetItems[i];
+                    lbfolderList.Items.Add(pth1);
                 }
             }
             else

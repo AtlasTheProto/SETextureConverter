@@ -70,7 +70,7 @@
             // 
             this.btnSelToolPath.Location = new System.Drawing.Point(227, 39);
             this.btnSelToolPath.Name = "btnSelToolPath";
-            this.btnSelToolPath.Size = new System.Drawing.Size(75, 20);
+            this.btnSelToolPath.Size = new System.Drawing.Size(82, 20);
             this.btnSelToolPath.TabIndex = 4;
             this.btnSelToolPath.Text = "Browse...";
             this.btnSelToolPath.UseVisualStyleBackColor = true;
@@ -138,14 +138,14 @@
             // loadPresetsToolStripMenuItem
             // 
             this.loadPresetsToolStripMenuItem.Name = "loadPresetsToolStripMenuItem";
-            this.loadPresetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadPresetsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.loadPresetsToolStripMenuItem.Text = "Load Presets";
             this.loadPresetsToolStripMenuItem.Click += new System.EventHandler(this.LoadPresetsToolStripMenuItem_Click);
             // 
             // resetSettingsToolStripMenuItem
             // 
             this.resetSettingsToolStripMenuItem.Name = "resetSettingsToolStripMenuItem";
-            this.resetSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetSettingsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.resetSettingsToolStripMenuItem.Text = "Reset Settings ";
             this.resetSettingsToolStripMenuItem.Click += new System.EventHandler(this.resetSettingsToolStripMenuItem_Click);
             // 
@@ -153,7 +153,7 @@
             // 
             this.btnBrowseGameDir.Location = new System.Drawing.Point(227, 117);
             this.btnBrowseGameDir.Name = "btnBrowseGameDir";
-            this.btnBrowseGameDir.Size = new System.Drawing.Size(75, 20);
+            this.btnBrowseGameDir.Size = new System.Drawing.Size(82, 20);
             this.btnBrowseGameDir.TabIndex = 11;
             this.btnBrowseGameDir.Text = "Browse...";
             this.btnBrowseGameDir.UseVisualStyleBackColor = true;
@@ -211,7 +211,7 @@
             // 
             this.btnBrowseOut.Location = new System.Drawing.Point(227, 78);
             this.btnBrowseOut.Name = "btnBrowseOut";
-            this.btnBrowseOut.Size = new System.Drawing.Size(75, 20);
+            this.btnBrowseOut.Size = new System.Drawing.Size(82, 20);
             this.btnBrowseOut.TabIndex = 17;
             this.btnBrowseOut.Text = "Browse...";
             this.btnBrowseOut.UseVisualStyleBackColor = true;
@@ -244,7 +244,7 @@
             // 
             this.btnRemove.Location = new System.Drawing.Point(227, 185);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(82, 23);
             this.btnRemove.TabIndex = 20;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -254,7 +254,7 @@
             // 
             this.btnAdd.Location = new System.Drawing.Point(227, 156);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(82, 23);
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             // 
             this.btnInsertPresets.Location = new System.Drawing.Point(228, 215);
             this.btnInsertPresets.Name = "btnInsertPresets";
-            this.btnInsertPresets.Size = new System.Drawing.Size(74, 49);
+            this.btnInsertPresets.Size = new System.Drawing.Size(81, 49);
             this.btnInsertPresets.TabIndex = 23;
             this.btnInsertPresets.Text = "Insert Presets";
             this.btnInsertPresets.UseVisualStyleBackColor = true;
