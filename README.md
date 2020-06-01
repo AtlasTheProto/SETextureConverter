@@ -31,7 +31,7 @@ Please report all issues to this github.
 
 ### Credits
 
-Literally none of this would exist if it wasnt for my good friend Xayr, go check him out.
+Literally none of this would exist if it wasnt for my best friend Xayr, go check him out.
 
 https://github.com/XAYRGA
 
