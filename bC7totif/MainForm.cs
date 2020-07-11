@@ -286,7 +286,7 @@ namespace bulkTexConverter
                 var destDir = outDir + relDir;
                 var convFileName = Path.GetFileName(currentFilePath);
                 Directory.CreateDirectory(destDir);
-                currentfiles = i;
+                currentfiles++;
                 var cmdArgs = string.Format("-ft TIF -if LINEAR -sRGB -y -o \"{0}\" \"{1}\"", destDir, currentFilePath);
                 var newProcess = StartProcess(toolPath + "\\texconv.exe", cmdArgs);
                 if (newProcess != null)
@@ -299,6 +299,7 @@ namespace bulkTexConverter
             );
 
             MessageBox.Show("Finished!", "Conversion completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            currentfiles = 0;
             busy = false;
 
         }
@@ -317,6 +318,7 @@ namespace bulkTexConverter
                 return;
             }
 
+            currentfiles = 0;
             Items = lbfolderList.Items;
             var asyncThreadParamInit = new ThreadStart(doConvertAll);
             //doConvertAll();
