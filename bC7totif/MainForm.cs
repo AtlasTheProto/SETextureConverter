@@ -276,28 +276,28 @@ namespace bulkTexConverter
             }
          
             maxfiles = fileList.Length;
-          
-            for (int i=0; i < fileList.Length; i++)
+
+            int current_working = 0;
+            Parallel.For(0, maxfiles, new ParallelOptions { MaxDegreeOfParallelism = 10 }, i =>
             {
-                var currentFilePath = fileList[i];                
+                var currentFilePath = fileList[i];
                 var DirName = Path.GetDirectoryName(currentFilePath);
-                var relDir = DirName.Replace(gamePath,"");
+                var relDir = DirName.Replace(gamePath, "");
                 var destDir = outDir + relDir;
-                //var destDir = "temp/" + relDir;
                 var convFileName = Path.GetFileName(currentFilePath);
                 Directory.CreateDirectory(destDir);
                 currentfiles = i;
                 var cmdArgs = string.Format("-ft TIF -if LINEAR -sRGB -y -o \"{0}\" \"{1}\"", destDir, currentFilePath);
                 var newProcess = StartProcess(toolPath + "\\texconv.exe", cmdArgs);
-                // consoleBuffer.Enqueue("Converting " + i +  " out of " + maxfiles + " (" + convFileName + ")");
-                consoleBuffer.Enqueue("Converting: " + convFileName + " (" + i + "/" + maxfiles + ")");
-                if (newProcess!=null)
+                if (newProcess != null)
                 {
                     newProcess.WaitForExit();
+                    Interlocked.Increment(ref current_working);
+                    consoleBuffer.Enqueue("Converting: " + convFileName + " (" + current_working + "/" + maxfiles + ")");
                 }
-
             }
-            
+            );
+
             MessageBox.Show("Finished!", "Conversion completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             busy = false;
 
