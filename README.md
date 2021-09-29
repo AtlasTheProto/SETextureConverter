@@ -35,4 +35,8 @@ Literally none of this would exist if it wasnt for my best friend Xayr, go check
 
 https://github.com/XAYRGA
 
+Multi-threading brought to you by Klime!
+
+https://github.com/KlimeSE
+
 
